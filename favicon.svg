@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Dynamic Geometric R Monogram matching brand visual asset -->
+  <!-- Upper Primary Red Slash -->
+  <polygon points="59,20 81,20 64,40 45,40" fill="#FF2626"/>
+  
+  <!-- Secondary Parallel Red Slash -->
+  <polygon points="79,29 83,29 68,56 62,56" fill="#FF2626"/>
+  
+  <!-- Outer R Arc / Loop -->
+  <path d="M50,20 C68,20 80,32 80,46 C80,56 71,63 56,65 L50,65 Z" fill="#050505"/>
+  <path d="M35,32 H50 C58,32 64,36 64,42 C64,48 58,52 50,52 H35 Z" fill="#FFFFFF"/>
+  
+  <!-- Main Bold Black R Structure (Stem, crossbar & dynamic lower leg) -->
+  <path d="M20,20 H35 V52 H50 L66,65 L81,80 H65 L50,65 H35 V80 H20 Z" fill="#050505"/>
+  <polygon points="48,65 65,65 81,80 66,80" fill="#050505"/>
+  
+  <!-- Red Slashes Overlay for crisp stacking -->
+  <polygon points="59,20 81,20 64,40 45,40" fill="#FF2626"/>
+  <polygon points="79,29 83,29 68,56 62,56" fill="#FF2626"/>
+</svg>

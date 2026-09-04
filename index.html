@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rajiv M | Software & AI</title>
+  <meta name="description" content="Portfolio of Rajiv M - Software & AI Engineer specializing in Machine Learning, Deep Learning, Computer Vision, and Software Solutions.">
+  <meta name="keywords" content="Rajiv M, Software Engineer, AI Engineer, Data Science, Machine Learning, Deep Learning, Computer Vision, NLP, TensorFlow, Python, Portfolio">
+  
+  <!-- Favicon & Theme Color -->
+  <link rel="icon" type="image/png" href="favicon.png?v=2.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2.0">
+  <link rel="apple-touch-icon" href="favicon.png?v=2.0">
+  <meta name="theme-color" content="#050508">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Rajiv M | Software & AI">
+  <meta property="og:description" content="AI & Data Science Engineer building intelligent systems that turn data into practical, measurable solutions.">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts: Anton, Bebas Neue, Outfit, JetBrains Mono, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet (with cache buster) -->
+  <link rel="stylesheet" href="style.css?v=18.5">
+  
+  <style>
+    /* Universal Red Text Selection Highlight */
+    ::selection,
+    *::selection,
+    html::selection,
+    body::selection,
+    div::selection,
+    span::selection,
+    p::selection,
+    h1::selection,
+    h2::selection,
+    h3::selection,
+    h4::selection,
+    h5::selection,
+    h6::selection,
+    a::selection,
+    li::selection,
+    b::selection,
+    strong::selection {
+      background-color: #ff2a2a !important;
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
+    }
+
+    ::-moz-selection,
+    *::-moz-selection,
+    html::-moz-selection,
+    body::-moz-selection,
+    div::-moz-selection,
+    span::-moz-selection,
+    p::-moz-selection,
+    h1::-moz-selection,
+    h2::-moz-selection,
+    h3::-moz-selection,
+    h4::-moz-selection,
+    h5::-moz-selection,
+    h6::-moz-selection,
+    a::-moz-selection,
+    li::-moz-selection,
+    b::-moz-selection,
+    strong::-moz-selection {
+      background-color: #ff2a2a !important;
+      color: #ffffff !important;
+    }
+
+    /* Clean Standard Width & Lower Placement for Education Cards */
+    .timeline-wrapper {
+      max-width: 860px !important;
+      margin: 4.5rem auto 0 !important;
+      padding-left: 2rem !important;
+    }
+
+    .timeline-dot {
+      left: -2rem !important;
+      top: 2.4rem !important;
+      width: 10px !important;
+      height: 10px !important;
+      transform: translateX(-4px) !important;
+    }
+
+    .timeline-card {
+      padding: 1.95rem 2.35rem !important;
+      border-radius: 12px !important;
+    }
+
+    .timeline-year {
+      font-size: 0.9rem !important;
+      margin-bottom: 0.5rem !important;
+      letter-spacing: 0.08em !important;
+    }
+
+    .timeline-card h3 {
+      font-size: clamp(1.6rem, 2.3vw, 2.05rem) !important;
+      margin-bottom: 0.4rem !important;
+      line-height: 1.2 !important;
+    }
+
+    .timeline-card .institution {
+      font-size: 1rem !important;
+    }
+
+    /* Proportional & Sleek Console Cards */
+    .console-section .section-container {
+      max-width: 1260px !important;
+    }
+
+    .console-card {
+      padding: 1.55rem 1.4rem !important;
+      border-radius: 14px !important;
+      min-height: auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease !important;
+    }
+
+    .console-card:hover {
+      transform: translateY(-5px) !important;
+      border-color: rgba(255, 42, 42, 0.6) !important;
+      background: #0f0f13 !important;
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 42, 42, 0.15) !important;
+    }
+
+    .console-card .console-card-header {
+      margin-bottom: 1.1rem !important;
+    }
+
+    .console-card .card-num {
+      font-size: 1.35rem !important;
+    }
+
+    .console-card-header i,
+    .console-card-header svg {
+      width: 26px !important;
+      height: 26px !important;
+    }
+
+    .console-card h3 {
+      font-size: 1.75rem !important;
+      letter-spacing: 0.03em !important;
+      margin-bottom: 0.35rem !important;
+    }
+
+    .console-card .card-title-line {
+      width: 24px !important;
+      height: 2px !important;
+      margin-bottom: 0.95rem !important;
+    }
+
+    .console-card p {
+      font-size: 0.92rem !important;
+      line-height: 1.6 !important;
+      color: rgba(255, 255, 255, 0.72) !important;
+      margin-bottom: 1.35rem !important;
+    }
+
+    /* Red Filling Tube Animation on Hover */
+    .console-meter {
+      height: 4px !important;
+      background: rgba(255, 255, 255, 0.12) !important;
+      border-radius: 999px !important;
+      overflow: hidden !important;
+      margin-top: auto !important;
+      position: relative !important;
+    }
+
+    .console-meter span {
+      display: block !important;
+      height: 100% !important;
+      width: 35% !important;
+      background: var(--color-red) !important;
+      border-radius: 999px !important;
+      transition: width 0.65s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, filter 0.4s ease !important;
+    }
+
+    .console-card:hover .console-meter span {
+      width: 100% !important;
+      box-shadow: 0 0 14px rgba(255, 42, 42, 0.95) !important;
+      filter: brightness(1.2) !important;
+    }
+
+    /* Solid, cleanly rendered ampersand without font-cutout */
+    .hero-subhead .text-red {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+      font-weight: 700 !important;
+      display: inline-block !important;
+      color: var(--color-red) !important;
+    }
+
+    /* Balanced Background Grid / Cubes */
+    .grid-bg {
+      position: absolute !important;
+      inset: 0 !important;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.036) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.036) 1px, transparent 1px) !important;
+      background-size: 78px 78px !important;
+      opacity: 0.85 !important;
+      pointer-events: none !important;
+    }
+
+    /* Watermark text touching bottom and left corner flush to cube edge */
+    .hero-watermark {
+      position: absolute !important;
+      bottom: -0.06em !important;
+      left: -0.04em !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      line-height: 0.72 !important;
+      font-family: var(--font-bebas) !important;
+      font-size: clamp(140px, 19vw, 270px) !important;
+      color: rgba(255, 255, 255, 0.045) !important;
+      user-select: none !important;
+      pointer-events: none !important;
+      z-index: 0 !important;
+      letter-spacing: 0.02em !important;
+    }
+
+    /* Hero Visual Container shifted right strictly matching image width */
+    .hero-visual {
+      width: 375px !important;
+      max-width: 100% !important;
+      margin-left: 1rem !important;
+      position: relative !important;
+    }
+
+    @media (max-width: 960px) {
+      .hero-visual {
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+    }
+
+    /* Floating Status Chips matching reference placement */
+    .floating-chip {
+      z-index: 12 !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      background: rgba(18, 18, 22, 0.88) !important;
+      border: 1px solid rgba(255, 255, 255, 0.16) !important;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75) !important;
+    }
+
+    .chip-top {
+      top: 11% !important;
+      right: -28px !important;
+    }
+
+    .chip-left {
+      top: 45% !important;
+      left: -105px !important;
+    }
+
+    .chip-right {
+      top: 68% !important;
+      bottom: auto !important;
+      right: -72px !important;
+    }
+
+    .portrait-badge {
+      bottom: 1.75rem !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      background: rgba(14, 14, 18, 0.92) !important;
+      border: 1px solid rgba(255, 255, 255, 0.18) !important;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.85) !important;
+      padding: 0.55rem 1.6rem !important;
+      font-size: 0.72rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.16em !important;
+    }
+
+    .hero-red-orb {
+      position: absolute !important;
+      top: 50% !important;
+      left: 71% !important;
+      width: 820px !important;
+      height: 820px !important;
+      transform: translate(-50%, -50%) !important;
+      background: radial-gradient(
+        circle at 50% 50%,
+        rgba(245, 20, 35, 0.38) 0%,
+        rgba(200, 10, 25, 0.22) 38%,
+        rgba(130, 0, 15, 0.08) 65%,
+        transparent 78%
+      ) !important;
+      filter: blur(70px) !important;
+      border-radius: 50% !important;
+      pointer-events: none !important;
+      z-index: 1 !important;
+      opacity: 0.82 !important;
+    }
+
+    @media (max-width: 960px) {
+      .hero-red-orb {
+        left: 50% !important;
+      }
+    }
+
+    .portrait-glow {
+      display: block !important;
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      width: min(480px, 122%) !important;
+      height: min(640px, 116%) !important;
+      border-top-left-radius: 235px !important;
+      border-top-right-radius: 235px !important;
+      background: radial-gradient(
+        ellipse at 50% 45%,
+        rgba(245, 25, 45, 0.72) 0%,
+        rgba(210, 10, 30, 0.5) 35%,
+        rgba(155, 0, 20, 0.26) 60%,
+        rgba(95, 0, 10, 0.08) 82%,
+        transparent 100%
+      ) !important;
+      filter: blur(42px) !important;
+      pointer-events: none !important;
+      z-index: 1 !important;
+      opacity: 0.76 !important;
+    }
+
+    .portrait-glow::before {
+      content: '' !important;
+      position: absolute !important;
+      inset: -32px -45px -15px -45px !important;
+      border-top-left-radius: 255px !important;
+      border-top-right-radius: 255px !important;
+      background: radial-gradient(
+        ellipse at 50% 45%,
+        rgba(245, 10, 35, 0.6) 0%,
+        rgba(205, 5, 25, 0.38) 42%,
+        rgba(125, 0, 15, 0.14) 72%,
+        transparent 90%
+      ) !important;
+      filter: blur(34px) !important;
+    }
+
+    .portrait-glow::after {
+      content: '' !important;
+      position: absolute !important;
+      inset: -65px -100px -35px -100px !important;
+      border-radius: 50% !important;
+      background: radial-gradient(
+        circle at 50% 50%,
+        rgba(245, 0, 30, 0.35) 0%,
+        rgba(175, 0, 25, 0.18) 48%,
+        transparent 76%
+      ) !important;
+      filter: blur(62px) !important;
+    }
+
+    .portrait-card {
+      box-shadow: 
+        0 25px 80px rgba(0, 0, 0, 0.95),
+        0 0 40px rgba(255, 25, 40, 0.32),
+        0 0 95px rgba(220, 0, 25, 0.2) !important;
+    }
+  </style>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Top Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Custom Cursor Follower -->
+  <div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+  <!-- Floating Pill Navigation -->
+  <header class="nav-shell">
+    <nav class="nav-container">
+      <a href="#home" class="logo font-bebas">Rajiv.<span class="text-red">M</span></a>
+      <div class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#workbench" class="nav-link">AI Workbench</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <a href="#contact" class="magnetic btn btn-red btn-sm">Let's Talk</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="grid-bg"></div>
+      <div class="hero-red-orb"></div>
+      <p class="hero-watermark font-bebas" aria-hidden="true">RAJIV</p>
+
+      <div class="hero-content-wrapper">
+        <!-- Hero Text Left (55%) -->
+        <div class="hero-text">
+          <p class="hero-kicker font-mono"><span class="pulse-dot"></span> HELLO! I'M</p>
+          <h1 class="hero-heading font-bebas">RAJIV.<span class="text-red">M</span></h1>
+          <h2 class="hero-subhead font-outfit">AI <span class="text-red">&</span> Data Science Engineer<br>Digital Strategist</h2>
+          <p class="hero-description">
+            AI & Data Science graduate creating intelligent applications, modern websites, and scalable digital solutions.
+          </p>
+
+          <ul class="hero-highlights font-outfit">
+            <li><i data-lucide="check" class="text-red"></i> <span>Machine learning & data science for real-world problems</span></li>
+            <li><i data-lucide="check" class="text-red"></i> <span>Modern web apps, REST APIs & scalable digital solutions</span></li>
+            <li><i data-lucide="check" class="text-red"></i> <span>AI automation workflows that actually ship</span></li>
+          </ul>
+
+          <div class="hero-actions">
+            <div class="hero-actions-row">
+              <a href="#projects" class="magnetic btn btn-red font-mono">
+                <span>VIEW MY WORK</span>
+                <i data-lucide="arrow-right"></i>
+              </a>
+              <a href="#contact" class="magnetic btn btn-ghost font-mono">
+                <span>LET'S CONNECT</span>
+                <i data-lucide="arrow-up-right"></i>
+              </a>
+            </div>
+            <div class="hero-actions-row">
+              <button type="button" id="btnOpenResumeModal" class="magnetic btn btn-ghost font-mono">
+                <span>DOWNLOAD CV</span>
+                <i data-lucide="arrow-down"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Portrait & Tech Badges Right (45%) -->
+        <div class="hero-visual">
+          <div class="portrait-glow"></div>
+          
+          <!-- Floating Status Chips -->
+          <div class="floating-chip chip-top font-mono">
+            <span class="chip-dot"></span> CGPA: 8.67
+          </div>
+          <div class="floating-chip chip-left font-mono">
+            <span class="chip-dot"></span> AI &amp; DATA SCIENCE
+          </div>
+          <div class="floating-chip chip-right font-mono">
+            <span class="chip-dot"></span> PYTHON &bull; ML &bull; AI
+          </div>
+
+          <div class="portrait-card">
+            <img src="assets/rajiv_hero.jpg" alt="Rajiv M - AI & Data Science Engineer" class="portrait-img">
+            <div class="portrait-gradient"></div>
+            <div class="portrait-badge font-mono">
+              OPEN TO SOFTWARE OPPORTUNITIES
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities Infinite Marquee Ticker -->
+    <div class="marquee-section" aria-label="Capabilities marquee">
+      <div class="marquee-track font-bebas">
+        <span>SOFTWARE DEVELOPMENT <b class="text-red">•</b></span>
+        <span>PYTHON <b class="text-red">•</b></span>
+        <span>AI &amp; ML <b class="text-red">•</b></span>
+        <span>WEB DEVELOPMENT <b class="text-red">•</b></span>
+        <span>AUTOMATION <b class="text-red">•</b></span>
+        <span>SOFTWARE DEVELOPMENT <b class="text-red">•</b></span>
+        <span>PYTHON <b class="text-red">•</b></span>
+        <span>AI &amp; ML <b class="text-red">•</b></span>
+        <span>WEB DEVELOPMENT <b class="text-red">•</b></span>
+        <span>AUTOMATION <b class="text-red">•</b></span>
+        <span>SOFTWARE DEVELOPMENT <b class="text-red">•</b></span>
+        <span>PYTHON <b class="text-red">•</b></span>
+        <span>AI &amp; ML <b class="text-red">•</b></span>
+        <span>WEB DEVELOPMENT <b class="text-red">•</b></span>
+        <span>AUTOMATION <b class="text-red">•</b></span>
+        <span>SOFTWARE DEVELOPMENT <b class="text-red">•</b></span>
+        <span>PYTHON <b class="text-red">•</b></span>
+        <span>AI &amp; ML <b class="text-red">•</b></span>
+        <span>WEB DEVELOPMENT <b class="text-red">•</b></span>
+        <span>AUTOMATION <b class="text-red">•</b></span>
+        <span>SOFTWARE DEVELOPMENT <b class="text-red">•</b></span>
+        <span>PYTHON <b class="text-red">•</b></span>
+        <span>AI &amp; ML <b class="text-red">•</b></span>
+        <span>WEB DEVELOPMENT <b class="text-red">•</b></span>
+        <span>AUTOMATION <b class="text-red">•</b></span>
+        <span>SOFTWARE DEVELOPMENT <b class="text-red">•</b></span>
+        <span>PYTHON <b class="text-red">•</b></span>
+        <span>AI &amp; ML <b class="text-red">•</b></span>
+        <span>WEB DEVELOPMENT <b class="text-red">•</b></span>
+        <span>AUTOMATION <b class="text-red">•</b></span>
+      </div>
+    </div>
+
+    <!-- Live AI Builder Console -->
+    <section class="console-section" id="console">
+      <div class="section-container">
+        <div class="console-layout">
+          <div class="console-intro">
+            <p class="section-tag font-mono">LIVE SYSTEM</p>
+            <h2 class="section-title font-bebas">BUILDER CONSOLE</h2>
+            <div class="title-accent-line"></div>
+            <p class="console-copy">
+              Explore the technologies, solutions, and workflows I use to build practical digital products.
+            </p>
+          </div>
+
+          <div class="console-grid">
+            <!-- Card 01: AI & ML -->
+            <article class="console-card">
+              <div class="console-card-header">
+                <span class="card-num font-mono">01</span>
+                <i data-lucide="brain" class="text-red console-icon"></i>
+              </div>
+              <h3 class="font-bebas">AI & ML</h3>
+              <div class="card-title-line"></div>
+              <p>Machine learning, data science, NLP, computer vision & intelligent applications</p>
+              
+              <!-- Interactive Tech Reveal on Hover -->
+              <div class="console-tech-reveal font-mono">
+                <span class="reveal-label">STACK:</span>
+                <span>Python / TensorFlow / Keras / Scikit-learn / OpenCV</span>
+              </div>
+
+              <div class="console-meter">
+                <span style="width: 38%;"></span>
+              </div>
+            </article>
+
+            <!-- Card 02: WEB DEVELOPMENT -->
+            <article class="console-card">
+              <div class="console-card-header">
+                <span class="card-num font-mono">02</span>
+                <i data-lucide="code-2" class="text-red console-icon"></i>
+              </div>
+              <h3 class="font-bebas">WEB DEVELOPMENT</h3>
+              <div class="card-title-line"></div>
+              <p>Modern websites, web applications, responsive UI & scalable digital solutions</p>
+              
+              <!-- Interactive Tech Reveal on Hover -->
+              <div class="console-tech-reveal font-mono">
+                <span class="reveal-label">STACK:</span>
+                <span>JavaScript / HTML5 / CSS3 / REST APIs / Responsive UI</span>
+              </div>
+
+              <div class="console-meter">
+                <span style="width: 38%;"></span>
+              </div>
+            </article>
+
+            <!-- Card 03: AI AUTOMATION -->
+            <article class="console-card">
+              <div class="console-card-header">
+                <span class="card-num font-mono">03</span>
+                <i data-lucide="settings" class="text-red console-icon"></i>
+              </div>
+              <h3 class="font-bebas">AI AUTOMATION</h3>
+              <div class="card-title-line"></div>
+              <p>AI-powered workflows, ERP systems, API integrations & process automation</p>
+              
+              <!-- Interactive Tech Reveal on Hover -->
+              <div class="console-tech-reveal font-mono">
+                <span class="reveal-label">STACK:</span>
+                <span>Workflow Automation / ERP Pipelines / API Integrations / ETL</span>
+              </div>
+
+              <div class="console-meter">
+                <span style="width: 38%;"></span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me Section (Light Theme High Contrast) -->
+    <section id="about" class="light-section">
+      <div class="section-container">
+        <div class="about-grid">
+          <div class="about-left-col">
+            <p class="section-tag font-mono">IDENTITY</p>
+            <h2 class="section-title font-bebas text-black">ABOUT</h2>
+          </div>
+          <div class="about-content">
+            <h3 class="about-punchline font-outfit">
+              An AI & Data Science engineer with a builder’s mindset, focused on turning ideas into intelligent digital solutions.
+            </h3>
+            <p class="about-text">
+              I’m an AI & Data Science engineer with practical experience in machine learning, data science, web development, AI automation, and ERP solutions. I enjoy turning ideas into practical, scalable, and user-focused digital solutions—from intelligent applications and modern websites to automated workflows and business systems. I’m passionate about building technology that solves real-world problems, combining technical expertise with creativity and a strong understanding of business needs to deliver solutions that create meaningful and measurable value.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section (Light Gray High Contrast) -->
+    <section class="light-section bg-light-gray" id="education">
+      <div class="section-container">
+        <div class="center-heading">
+          <p class="section-tag font-mono">ACADEMIC PATH</p>
+          <h2 class="section-title font-bebas text-black">EDUCATION</h2>
+        </div>
+
+        <div class="timeline-wrapper">
+          <!-- Higher Education / Degree -->
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <article class="timeline-card">
+              <span class="timeline-year font-mono text-red">2022-2026</span>
+              <h3 class="font-outfit">B.Tech Artificial Intelligence & Data Science</h3>
+              <p class="institution">Karunya Institute of Technology and Sciences, Coimbatore</p>
+            </article>
+          </div>
+
+          <!-- Higher Secondary School -->
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <article class="timeline-card">
+              <span class="timeline-year font-mono text-red">2020-2022</span>
+              <h3 class="font-outfit">Higher Secondary Education</h3>
+              <p class="institution">Geetha Matric Higher Secondary School</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Categorized Skills Section (Light Theme with Dark Tech Cards) -->
+    <section id="skills" class="light-section skills-section">
+      <div class="section-container">
+        <div class="skills-heading-wrap">
+          <p class="section-tag font-mono">TECHNOLOGY TOOLKIT</p>
+          <h2 class="section-title font-bebas text-black">SKILLS & EXPERTISE</h2>
+        </div>
+
+        <div class="skills-grid skills-3col-grid">
+          <!-- Card 01: AI & Machine Learning -->
+          <div class="skill-category-card dark-tech-card">
+            <div class="skill-card-indicator"></div>
+            <div class="skill-cat-header">
+              <span class="skill-num font-mono">01</span>
+              <i data-lucide="brain" class="skill-cat-icon text-red"></i>
+            </div>
+            <h3 class="font-outfit">AI & Machine Learning</h3>
+            <p class="skill-card-desc">Designing neural architectures, statistical models, and intelligent vision systems.</p>
+            <ul class="skill-tags font-mono">
+              <li><span class="tag-dot"></span>Machine Learning</li>
+              <li><span class="tag-dot"></span>Deep Learning</li>
+              <li><span class="tag-dot"></span>NLP</li>
+              <li><span class="tag-dot"></span>Computer Vision</li>
+              <li><span class="tag-dot"></span>CNNs</li>
+            </ul>
+          </div>
+
+          <!-- Card 02: Programming -->
+          <div class="skill-category-card dark-tech-card">
+            <div class="skill-card-indicator"></div>
+            <div class="skill-cat-header">
+              <span class="skill-num font-mono">02</span>
+              <i data-lucide="terminal" class="skill-cat-icon text-red"></i>
+            </div>
+            <h3 class="font-outfit">Programming</h3>
+            <p class="skill-card-desc">Core programming languages for algorithmic systems, data parsing, and scripting.</p>
+            <ul class="skill-tags font-mono">
+              <li><span class="tag-dot"></span>Python</li>
+              <li><span class="tag-dot"></span>SQL</li>
+              <li><span class="tag-dot"></span>JavaScript</li>
+              <li><span class="tag-dot"></span>HTML5</li>
+              <li><span class="tag-dot"></span>CSS3</li>
+              <li><span class="tag-dot"></span>Bash</li>
+            </ul>
+          </div>
+
+          <!-- Card 03: Data & AI Tools -->
+          <div class="skill-category-card dark-tech-card">
+            <div class="skill-card-indicator"></div>
+            <div class="skill-cat-header">
+              <span class="skill-num font-mono">03</span>
+              <i data-lucide="layers" class="skill-cat-icon text-red"></i>
+            </div>
+            <h3 class="font-outfit">Data & AI Tools</h3>
+            <p class="skill-card-desc">Industry-standard libraries and frameworks for tensor computing, computer vision, and ETL.</p>
+            <ul class="skill-tags font-mono">
+              <li><span class="tag-dot"></span>TensorFlow</li>
+              <li><span class="tag-dot"></span>Keras</li>
+              <li><span class="tag-dot"></span>Scikit-learn</li>
+              <li><span class="tag-dot"></span>Pandas</li>
+              <li><span class="tag-dot"></span>NumPy</li>
+              <li><span class="tag-dot"></span>OpenCV</li>
+            </ul>
+          </div>
+
+          <!-- Card 04: Web Development -->
+          <div class="skill-category-card dark-tech-card">
+            <div class="skill-card-indicator"></div>
+            <div class="skill-cat-header">
+              <span class="skill-num font-mono">04</span>
+              <i data-lucide="code-2" class="skill-cat-icon text-red"></i>
+            </div>
+            <h3 class="font-outfit">Web Development</h3>
+            <p class="skill-card-desc">Building responsive web apps, structured backend endpoints, and client-facing interfaces.</p>
+            <ul class="skill-tags font-mono">
+              <li><span class="tag-dot"></span>Web Apps</li>
+              <li><span class="tag-dot"></span>REST APIs</li>
+              <li><span class="tag-dot"></span>Flask</li>
+              <li><span class="tag-dot"></span>Responsive UI</li>
+              <li><span class="tag-dot"></span>API Integration</li>
+            </ul>
+          </div>
+
+          <!-- Card 05: Automation & ERP -->
+          <div class="skill-category-card dark-tech-card">
+            <div class="skill-card-indicator"></div>
+            <div class="skill-cat-header">
+              <span class="skill-num font-mono">05</span>
+              <i data-lucide="settings-2" class="skill-cat-icon text-red"></i>
+            </div>
+            <h3 class="font-outfit">Automation & ERP</h3>
+            <p class="skill-card-desc">Enterprise workflow automation, business process pipelines, and system connectivity.</p>
+            <ul class="skill-tags font-mono">
+              <li><span class="tag-dot"></span>AI Workflows</li>
+              <li><span class="tag-dot"></span>ERP Solutions</li>
+              <li><span class="tag-dot"></span>Process Automation</li>
+              <li><span class="tag-dot"></span>API Pipelines</li>
+            </ul>
+          </div>
+
+          <!-- Card 06: Development Tools -->
+          <div class="skill-category-card dark-tech-card">
+            <div class="skill-card-indicator"></div>
+            <div class="skill-cat-header">
+              <span class="skill-num font-mono">06</span>
+              <i data-lucide="wrench" class="skill-cat-icon text-red"></i>
+            </div>
+            <h3 class="font-outfit">Development Tools</h3>
+            <p class="skill-card-desc">Modern developer environments, version control, API testing, and container workflows.</p>
+            <ul class="skill-tags font-mono">
+              <li><span class="tag-dot"></span>Git</li>
+              <li><span class="tag-dot"></span>GitHub</li>
+              <li><span class="tag-dot"></span>VS Code</li>
+              <li><span class="tag-dot"></span>Jupyter</li>
+              <li><span class="tag-dot"></span>Postman</li>
+              <li><span class="tag-dot"></span>Docker</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive AI Neural Workbench Simulator Section -->
+    <section id="workbench" class="dark-section workbench-section">
+      <div class="section-container">
+        <!-- Section Header -->
+        <div class="workbench-header">
+          <p class="section-tag font-mono">INTERACTIVE MODEL SANDBOX</p>
+          <h2 class="section-title font-bebas text-white">AI WORKBENCH</h2>
+        </div>
+
+        <div class="workbench-grid">
+          <!-- Left Column: Description, Spec Badges & Module Selectors -->
+          <div class="workbench-controls">
+            <p class="workbench-lead font-outfit">
+              Test and inspect simulated model inferences, live classification telemetry, and automated processing pipelines built across my key AI &amp; Data Science projects.
+            </p>
+
+            <!-- Hardware / Architecture Specification Badges -->
+            <div class="hw-chips-row font-mono">
+              <span class="hw-chip" data-filter="cnn"><i data-lucide="brain" class="chip-icon text-red"></i> CNN &amp; Deep Learning</span>
+              <span class="hw-chip" data-filter="nlp"><i data-lucide="file-text" class="chip-icon text-red"></i> TF-IDF &amp; NLP</span>
+              <span class="hw-chip" data-filter="cv"><i data-lucide="camera" class="chip-icon text-red"></i> OpenCV Face CV</span>
+            </div>
+
+            <!-- Module Selection Header -->
+            <div class="module-group-title font-mono">
+              <span>SELECT MODEL / PIPELINE</span>
+            </div>
+
+            <!-- Vertical Module List (3 Items) -->
+            <div class="module-buttons">
+              <!-- Item 1: Food CNN (Active by Default) -->
+              <button class="module-btn active" data-module="food-cnn" data-index="0" aria-label="Select Food CNN &amp; Calorie Estimator">
+                <div class="btn-icon-sq"><i data-lucide="pie-chart"></i></div>
+                <div class="btn-text">
+                  <h4 class="font-outfit">Food CNN &amp; Calorie Estimator</h4>
+                  <p class="font-outfit">80 Indian food categories • ±10% Calorie Margin</p>
+                </div>
+                <span class="module-spec font-mono">94.2% ACC</span>
+                <div class="card-glow-bar"></div>
+              </button>
+
+              <!-- Item 2: BIM Document Ranking & NLP -->
+              <button class="module-btn" data-module="doc-retrieval" data-index="1" aria-label="Select BIM Document Ranking &amp; NLP">
+                <div class="btn-icon-sq"><i data-lucide="file-search"></i></div>
+                <div class="btn-text">
+                  <h4 class="font-outfit">BIM Document Ranking &amp; NLP</h4>
+                  <p class="font-outfit">TF-IDF • Cosine Similarity • 1,000+ Corpus</p>
+                </div>
+                <span class="module-spec font-mono">90% REL</span>
+                <div class="card-glow-bar"></div>
+              </button>
+
+              <!-- Item 3: Face Recognition Attendance -->
+              <button class="module-btn" data-module="face-cv" data-index="2" aria-label="Select Face Recognition Attendance">
+                <div class="btn-icon-sq"><i data-lucide="scan"></i></div>
+                <div class="btn-text">
+                  <h4 class="font-outfit">Face Recognition Attendance</h4>
+                  <p class="font-outfit">OpenCV • 30+ Faces/min • CSV Auto-log</p>
+                </div>
+                <span class="module-spec font-mono">REAL-TIME</span>
+                <div class="card-glow-bar"></div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Handheld Device Hardware Simulator Frame -->
+          <div class="simulator-wrapper">
+            <div class="simulator-glow"></div>
+            
+            <div class="simulator-device handheld-chassis" id="simulatorChassis">
+              <!-- Device Top Hardware Status Bar -->
+              <div class="sim-header font-mono">
+                <div class="sim-header-item header-status">
+                  <span class="status-indicator"><span class="blink-dot"></span> <span id="simSystemStatus">SYSTEM ONLINE</span></span>
+                  <span class="demo-mode-badge" id="simModeBadge">DEMO MODE</span>
+                </div>
+                <div class="sim-header-item header-counter">
+                  <span class="project-counter-badge" id="simProjectCounter">PROJECT 01 / 03</span>
+                </div>
+                <div class="sim-header-item header-hw">
+                  <span class="hw-spec" id="simHwSpec">TENSOR CORE / CUDA</span>
+                </div>
+              </div>
+
+              <!-- Inner Device Display Screen -->
+              <div class="sim-screen dark-bezel-screen" id="simScreen">
+                <div class="crt-scanlines"></div>
+                <div class="crt-glow-overlay"></div>
+
+                <!-- Screen Title Bar -->
+                <div class="screen-titlebar font-mono">
+                  <span id="screenTitle">>_ INFERENCE: Food Classifier (CNN)</span>
+                  <span class="screen-freq font-mono text-red" id="screenFreq">SIMULATION ACTIVE</span>
+                </div>
+
+                <!-- Screen Dynamic Signal Visualizer & Pipeline -->
+                <div class="screen-body" id="screenBody">
+                  <!-- Rendered dynamically by JavaScript -->
+                </div>
+
+                <!-- Terminal Command Line Output -->
+                <div class="screen-terminal-wrap">
+                  <div class="screen-terminal font-mono" id="screenTerminal">
+                    <div class="terminal-line text-white/50">> [TensorFlow] Loaded weights: cnn_indian_food_80.keras</div>
+                    <div class="terminal-line text-white/50">> [Preprocess] Image normalized: [224x224x3] in 4.2ms</div>
+                    <div class="terminal-line text-red">> [Classification] Class 38: Masala Dosa (Conf: 94.2%)</div>
+                    <div class="terminal-line text-white/90">> [Calorie Estimation] Est: 350 kcal | Bounds: [320 - 380 kcal]</div>
+                  </div>
+                </div>
+
+                <!-- Screen Footer Meta & Case Study Link -->
+                <div class="screen-footer-meta font-mono">
+                  <span class="sim-model-file" id="simActiveModel">CNN_FOOD_V2.keras</span>
+                  <a href="#project-food" class="sim-view-project-link" id="simViewProjectLink">
+                    <span>VIEW PROJECT</span>
+                    <i data-lucide="arrow-up-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Device Hardware Physical Controls (Bottom) -->
+              <div class="sim-hardware-controls">
+                <div class="sim-ctrl-group">
+                  <div class="sim-circle-btns font-mono">
+                    <button class="circle-btn" id="simBtnA" title="Re-run Simulation (Press A)" aria-label="Re-run Simulation">A</button>
+                    <button class="circle-btn" id="simBtnB" title="Next Project (Press B)" aria-label="Next Project">B</button>
+                  </div>
+                  <div class="sim-keys-hint font-mono">
+                    <span class="key-pill"><strong>[A]</strong> RUN</span>
+                    <span class="key-pill"><strong>[B]</strong> NEXT</span>
+                    <span class="key-pill"><strong>[←/→]</strong> NAV</span>
+                  </div>
+                </div>
+                <div class="sim-pill-vents">
+                  <span></span><span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected Projects & Case Studies (Light Section with Bold Black Split Cards) -->
+    <section id="projects" class="light-section projects-section">
+      <div class="section-container">
+        <div class="projects-heading-wrap">
+          <p class="section-tag font-mono">SELECTED OUTCOMES</p>
+          <h2 class="section-title font-bebas text-black">PROJECTS</h2>
+        </div>
+
+        <div class="projects-list">
+          
+          <!-- Case Study 01 -->
+          <article id="project-food" class="case-card dark-split-case">
+            <div class="case-left-col">
+              <h3 class="case-big-heading font-bebas">
+                FOOD IMAGE CLASSIFICATION &amp; CALORIE ESTIMATION
+              </h3>
+              <p class="case-bottom-tag font-mono text-red">
+                PYTHON • TENSORFLOW • CNN
+              </p>
+            </div>
+
+            <div class="case-right-col">
+              <p class="case-desc font-outfit">
+                An AI-powered food analysis system that classifies Indian food images and estimates their calorie values through deep convolutional neural networks and nutritional mapping.
+              </p>
+
+              <div class="case-highlights-row font-mono">
+                <span class="hl-pill"><i data-lucide="check" class="text-red"></i> 80 Indian Categories</span>
+                <span class="hl-pill"><i data-lucide="check" class="text-red"></i> &gt; 85% Model Accuracy</span>
+                <span class="hl-pill"><i data-lucide="check" class="text-red"></i> &plusmn;10% Calorie Margin</span>
+                <span class="hl-pill"><i data-lucide="check" class="text-red"></i> 5+ Tuning Iterations</span>
+              </div>
+
+              <div class="case-footer-row">
+                <div class="case-tech-tags font-mono">
+                  <span>Python</span>
+                  <span>TensorFlow</span>
+                  <span>Keras</span>
+                  <span>CNNs</span>
+                </div>
+                <a href="https://github.com/rajiv-m" target="_blank" rel="noreferrer" class="btn btn-red-outline font-mono">
+                  <i data-lucide="github"></i>
+                  <span>GITHUB</span>
+                  <i data-lucide="arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Case Study 02 -->
+          <article id="project-bim" class="case-card dark-split-case">
+            <div class="case-left-col">
+              <h3 class="case-big-heading font-bebas">
+                OPTIMIZED DOCUMENT RANKING WITH BIM
+              </h3>
+              <p class="case-bottom-tag font-mono text-red">
+                PYTHON • TF-IDF • PROBABILISTIC IR
+              </p>
+            </div>
+
+            <div class="case-right-col">
+              <p class="case-desc font-outfit">
+                A document retrieval system designed to improve search relevance across a large document corpus using TF-IDF vectorization and probabilistic relevance feedback.
+              </p>
+
+              <div class="case-highlights-row font-mono">
+                <span class="hl-pill"><i data-lucide="check" class="text-red"></i> 90% Relevance Score</span>
+                <span class="hl-pill"><i data-lucide="check" class="text-red"></i> 1,000+ Document Corpus</span>
+                <span class="hl-pill"><i data-lucide="check" class="text-red"></i> +20% Query Relevance Boost</span>
+                <span class="hl-pill"><i data-lucide="check" class="text-red"></i> Cosine Similarity Matrix</span>
+              </div>
+
+              <div class="case-footer-row">
+                <div class="case-tech-tags font-mono">
+                  <span>Python</span>
+                  <span>NLP</span>
+                  <span>TF-IDF</span>
+                  <span>Cosine Similarity</span>
+                  <span>BIM Model</span>
+                </div>
+                <a href="https://github.com/rajiv-m" target="_blank" rel="noreferrer" class="btn btn-red-outline font-mono">
+                  <i data-lucide="github"></i>
+                  <span>GITHUB</span>
+                  <i data-lucide="arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Case Study 03 -->
+          <article id="project-face" class="case-card dark-split-case">
+            <div class="case-left-col">
+              <h3 class="case-big-heading font-bebas">
+                FACE DETECTION ATTENDANCE SYSTEM
+              </h3>
+              <p class="case-bottom-tag font-mono text-red">
+                PYTHON • OPENCV • REAL-TIME CV
+              </p>
+            </div>
+
+            <div class="case-right-col">
+              <p class="case-desc font-outfit">
+                A real-time computer vision system that automates attendance tracking through facial recognition, video stream processing, and automated CSV logging.
+              </p>
+
+              <div class="case-highlights-row font-mono">
+                <span class="hl-pill"><i data-lucide="check" class="text-red"></i> 90% Workload Reduction</span>
+                <span class="hl-pill"><i data-lucide="check" class="text-red"></i> 30+ Faces / Min Speed</span>
+                <span class="hl-pill"><i data-lucide="check" class="text-red"></i> Automated CSV Logs</span>
+                <span class="hl-pill"><i data-lucide="check" class="text-red"></i> Real-time OpenCV Feed</span>
+              </div>
+
+              <div class="case-footer-row">
+                <div class="case-tech-tags font-mono">
+                  <span>Python</span>
+                  <span>OpenCV</span>
+                  <span>Computer Vision</span>
+                  <span>CSV Automation</span>
+                </div>
+                <a href="https://github.com/rajiv-m" target="_blank" rel="noreferrer" class="btn btn-red-outline font-mono">
+                  <i data-lucide="github"></i>
+                  <span>GITHUB</span>
+                  <i data-lucide="arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics Numerical Counter Cards (Dark Section) -->
+    <section class="dark-section counter-section">
+      <div class="section-container">
+        <div class="counters-grid">
+          <div class="counter-card">
+            <strong class="counter font-bebas text-red" data-target="20" data-suffix="+">0</strong>
+            <span class="counter-label font-outfit">Projects Completed</span>
+          </div>
+
+          <div class="counter-card">
+            <strong class="counter font-bebas text-red" data-target="10" data-suffix="+">0</strong>
+            <span class="counter-label font-outfit">Technologies Used</span>
+          </div>
+
+          <div class="counter-card">
+            <strong class="counter font-bebas text-red" data-target="4">0</strong>
+            <span class="counter-label font-outfit">Service Areas</span>
+          </div>
+
+          <div class="counter-card">
+            <strong class="counter font-bebas text-red" data-target="8.67" data-is-decimal="true">0</strong>
+            <span class="counter-label font-outfit">Academic CGPA</span>
+          </div>
+
+          <div class="counter-card">
+            <strong class="counter font-bebas text-red" data-target="2023" data-no-anim="true">2023</strong>
+            <span class="counter-label font-outfit">Building Since</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section (Light Section) -->
+    <section id="experience" class="light-section">
+      <div class="section-container">
+        <div>
+          <p class="section-tag font-mono">Field Notes</p>
+          <h2 class="section-title font-bebas text-black">Experience</h2>
+        </div>
+
+        <div class="experience-list">
+          <article class="experience-card">
+            <div class="exp-header">
+              <div class="exp-title-block">
+                <h3 class="font-outfit">Data Science Intern</h3>
+                <p class="exp-company font-mono">LITZ Tech, Coimbatore</p>
+              </div>
+              <span class="exp-date font-mono">May 2024 – Jun 2024</span>
+            </div>
+
+            <ul class="exp-bullets">
+              <li>
+                <i data-lucide="chevron-right" class="text-red"></i>
+                <span>Processed and transformed <strong>10,000+ rows of real-time data</strong> using Python, Pandas, and NumPy, significantly improving data readiness for modelling.</span>
+              </li>
+              <li>
+                <i data-lucide="chevron-right" class="text-red"></i>
+                <span>Conducted exploratory data analysis (EDA) to identify patterns and anomalies, supporting the selection and optimization of <strong>2 machine learning models with a 15% boost in accuracy</strong>.</span>
+              </li>
+              <li>
+                <i data-lucide="chevron-right" class="text-red"></i>
+                <span>Documented end-to-end workflows through <strong>3+ reproducible Jupyter notebooks</strong> for project evaluation and validation.</span>
+              </li>
+              <li>
+                <i data-lucide="chevron-right" class="text-red"></i>
+                <span>Contributed to <strong>2 stakeholder presentations</strong> for model performance evaluation and operational validation.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications & Proof Section (Light Section matching Reference) -->
+    <section id="certifications" class="light-section certs-section">
+      <div class="section-container">
+        <div class="certs-header">
+          <p class="section-tag font-mono text-red">PROOF</p>
+          <h2 class="section-title font-bebas text-black">CERTIFICATIONS</h2>
+        </div>
+
+        <div class="certs-grid">
+          <!-- Card 1 -->
+          <div class="cert-card">
+            <span class="cert-name font-outfit">Partner: PCAP - Programming Essentials in Python - Cisco</span>
+            <i data-lucide="chevron-down" class="cert-icon"></i>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="cert-card">
+            <span class="cert-name font-outfit">Data Analytics Essentials - Cisco</span>
+            <i data-lucide="chevron-down" class="cert-icon"></i>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="cert-card">
+            <span class="cert-name font-outfit">JavaScript for Beginners - Simplilearn</span>
+            <i data-lucide="chevron-down" class="cert-icon"></i>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="cert-card">
+            <span class="cert-name font-outfit">Programming with Python 3.X - Simplilearn</span>
+            <i data-lucide="chevron-down" class="cert-icon"></i>
+          </div>
+        </div>
+
+        <div class="certs-actions">
+          <a href="https://drive.google.com/drive/folders/1_HsP7_4zkf6tiWNa6QZiKKXjZ8p4xesY?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-black-pill font-mono">
+            <span>VERIFY CERTIFICATES</span>
+            <i data-lucide="arrow-up-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Building Philosophy / How I Build Section (Reference Visual Design) -->
+    <section id="how-i-build" class="dark-section collab-section">
+      <div class="section-container">
+        <!-- Section Header -->
+        <div class="collab-header">
+          <p class="section-tag font-mono text-red">BUILDING PHILOSOPHY</p>
+          <h2 class="collab-title font-bebas text-white">HOW I BUILD</h2>
+          <p class="collab-sub-copy font-outfit">
+            I approach every project by understanding the problem first, choosing the right technology, and building solutions that are practical, scalable, and easy to use.
+          </p>
+        </div>
+
+        <!-- 3 Cards Grid -->
+        <div class="collab-grid">
+          <!-- Card 01 -->
+          <article class="collab-card">
+            <div class="collab-card-top">
+              <span class="collab-num font-bebas text-red">01</span>
+              <div class="collab-icon">
+                <i data-lucide="target" class="text-red"></i>
+              </div>
+            </div>
+            <h3 class="collab-card-title font-outfit">
+              Understand<br>The Problem
+            </h3>
+            <ul class="collab-bullets font-outfit">
+              <li>
+                <i data-lucide="check" class="text-red"></i>
+                <span>Research & Discovery</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="text-red"></i>
+                <span>Requirement Analysis</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="text-red"></i>
+                <span>User Needs Assessment</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="text-red"></i>
+                <span>Data & Goal Discovery</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Card 02 -->
+          <article class="collab-card">
+            <div class="collab-card-top">
+              <span class="collab-num font-bebas text-red">02</span>
+              <div class="collab-icon">
+                <i data-lucide="layers" class="text-red"></i>
+              </div>
+            </div>
+            <h3 class="collab-card-title font-outfit">
+              Build<br>The Solution
+            </h3>
+            <ul class="collab-bullets font-outfit">
+              <li>
+                <i data-lucide="check" class="text-red"></i>
+                <span>Architecture Design</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="text-red"></i>
+                <span>Software Development</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="text-red"></i>
+                <span>AI & Model Integration</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="text-red"></i>
+                <span>Automation Workflows</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Card 03 -->
+          <article class="collab-card">
+            <div class="collab-card-top">
+              <span class="collab-num font-bebas text-red">03</span>
+              <div class="collab-icon">
+                <i data-lucide="rocket" class="text-red"></i>
+              </div>
+            </div>
+            <h3 class="collab-card-title font-outfit">
+              Test. Refine.<br>Ship.
+            </h3>
+            <ul class="collab-bullets font-outfit">
+              <li>
+                <i data-lucide="check" class="text-red"></i>
+                <span>Validation & Testing</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="text-red"></i>
+                <span>Performance Optimization</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="text-red"></i>
+                <span>Production Deployment</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="text-red"></i>
+                <span>Reliable Value Delivery</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section (High-Impact Minimal Black) -->
+    <section id="contact" class="dark-section contact-section">
+      <div class="contact-glow-orb" aria-hidden="true"></div>
+      <div class="section-container">
+        <div class="contact-grid-layout">
+          <!-- Left Column: Big Headline, Direct Contacts, WhatsApp CTA -->
+          <div class="contact-left-col">
+            <h2 class="contact-big-title font-bebas text-white">
+              LET'S BUILD<br>SOMETHING.
+            </h2>
+            <div class="contact-details font-outfit">
+              <p class="contact-line">Email: <a href="mailto:mrajiv4969@gmail.com">mrajiv4969@gmail.com</a></p>
+              <p class="contact-line">Phone: <a href="tel:+916374018797">+91 6374018797</a></p>
+            </div>
+            <a href="https://wa.me/916374018797" target="_blank" rel="noreferrer" class="btn-whatsapp font-outfit">
+              <i data-lucide="message-circle"></i>
+              <span>CHAT ON WHATSAPP</span>
+            </a>
+          </div>
+
+          <!-- Right Column: 3 Sleek Platform Cards + Enquiry Box -->
+          <div class="contact-right-col">
+            <div class="platforms-grid">
+              <a href="mailto:mrajiv4969@gmail.com" class="platform-card font-outfit">
+                <i data-lucide="mail"></i>
+                <span>Email</span>
+              </a>
+              <a href="https://www.linkedin.com/in/rajiv-m-353b99245?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer" class="platform-card font-outfit">
+                <i data-lucide="linkedin"></i>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://github.com/rajiv-m" target="_blank" rel="noreferrer" class="platform-card font-outfit">
+                <i data-lucide="github"></i>
+                <span>GitHub</span>
+              </a>
+            </div>
+
+            <!-- Sleek Enquiry Box -->
+            <div class="enquiry-card">
+              <div class="enquiry-card-header">
+                <h3 class="font-outfit">Quick Enquiry</h3>
+                <span class="enquiry-badge font-mono"><span class="pulse-dot"></span> Available for Projects</span>
+              </div>
+              <form id="contactForm" onsubmit="event.preventDefault(); handleContactSubmit();" class="enquiry-form">
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label for="name" class="font-mono">Your Name</label>
+                    <input type="text" id="name" required placeholder="Your Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="email" class="font-mono">Email Address</label>
+                    <input type="email" id="email" required placeholder="Your Email Address">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="serviceSelect" class="font-mono">Service Required</label>
+                  <div class="select-wrapper">
+                    <select id="serviceSelect" class="enquiry-select font-outfit" required>
+                      <option value="" disabled selected>Select a Service...</option>
+                      <option value="Web Development & Modern UI/UX">Web Development & Modern UI/UX</option>
+                      <option value="AI Automation & Workflows">AI Automation & Workflows</option>
+                      <option value="AI & Machine Learning Solutions">AI & Machine Learning Solutions</option>
+                      <option value="ERP & Business Systems">ERP & Business Systems</option>
+                      <option value="Data Science & Analytics">Data Science & Analytics</option>
+                      <option value="General Consultation">General Project / Consultation</option>
+                    </select>
+                    <i data-lucide="chevron-down" class="select-icon"></i>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="message" class="font-mono">Project / Requirement Details</label>
+                  <textarea id="message" rows="3" required placeholder="Tell me about your project, timeline, or requirements..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-red btn-block font-outfit">
+                  <span>SEND ENQUIRY</span>
+                  <i data-lucide="send"></i>
+                </button>
+              </form>
+              <div id="formFeedback" class="form-feedback font-mono"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="section-container text-center">
+        <p class="footer-copy font-outfit">
+          &copy; 2026 Rajiv M. Passion for AI & Data Science.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Interactive Resume Preview & Download Modal -->
+    <div class="resume-modal-backdrop" id="resumeModal" aria-hidden="true" role="dialog" aria-label="Rajiv M Resume Preview">
+      <div class="resume-modal-container">
+        <!-- Modal Action Bar -->
+        <div class="resume-modal-header font-mono">
+          <div class="modal-header-left">
+            <span class="status-indicator"><span class="blink-dot"></span> <span>RAJIV_M_RESUME.PDF</span></span>
+          </div>
+          <div class="modal-header-actions">
+            <a href="assets/Rajiv_M_Resume.pdf" download="Rajiv_M_Resume.pdf" class="modal-action-btn download-btn">
+              <i data-lucide="download"></i>
+              <span>DOWNLOAD PDF</span>
+            </a>
+            <button type="button" class="modal-action-btn print-btn" id="btnPrintResume" title="Print Resume">
+              <i data-lucide="printer"></i>
+              <span>PRINT</span>
+            </button>
+            <button type="button" class="modal-close-btn" id="btnCloseResumeModal" title="Close (Esc)" aria-label="Close Resume Modal">
+              <i data-lucide="x"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Direct PDF Viewer -->
+        <div class="resume-paper-scroll">
+          <iframe src="assets/Rajiv_M_Resume.pdf#toolbar=0&navpanes=0" class="resume-pdf-iframe" title="Rajiv M Resume PDF"></iframe>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- JavaScript -->
+  <script src="app.js?v=18.1"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
