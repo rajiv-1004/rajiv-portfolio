@@ -4,10 +4,13 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initCandidateDossierPreloader();
+  initLenisSmoothScroll();
   initScrollProgress();
   initDualCursor();
   initMagneticElements();
   init3DCardTiltAndSpotlight();
+  initKineticHeadingSplit();
   initScrollRevealAnimations();
   initParallaxScroll();
   initAiWorkbench();
@@ -15,6 +18,152 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavActiveState();
   initResumeModal();
 });
+
+/* --------------------------------------------------------------------------
+   -1. High-Impact Executive AI Candidate Dossier Preloader
+   -------------------------------------------------------------------------- */
+function initCandidateDossierPreloader() {
+  const preloader = document.getElementById('preloader');
+  if (!preloader) return;
+
+  const fillEl = document.getElementById('preloaderFill');
+  const percentEl = document.getElementById('loaderPercent');
+  const stageEl = document.getElementById('loaderStage');
+  const termTextEl = document.getElementById('termText');
+  const btnSkip = document.getElementById('btnSkipLoader');
+
+  let currentPercent = 0;
+  let isFinished = false;
+
+  const stages = [
+    { threshold: 0, stage: 'DEV_PROFILE', text: '[01/04] Loading Software Development Profile...' },
+    { threshold: 25, stage: 'TECH_STACK', text: '[02/04] Initializing Python • AI & ML • Web Development...' },
+    { threshold: 55, stage: 'PROJECTS_EXP', text: '[03/04] Loading Projects & Technical Experience...' },
+    { threshold: 85, stage: 'PROFILE_READY', text: '[04/04] Profile Ready — Welcome to Rajiv M.' }
+  ];
+
+  function finishLoader() {
+    if (isFinished) return;
+    isFinished = true;
+
+    if (fillEl) fillEl.style.width = '100%';
+    if (percentEl) percentEl.textContent = '100%';
+    if (stageEl) stageEl.textContent = 'PROFILE_READY';
+    if (termTextEl) termTextEl.textContent = '[04/04] Profile Ready — Welcome to Rajiv M.';
+
+    setTimeout(() => {
+      preloader.classList.add('preloader-hidden');
+      setTimeout(() => {
+        if (preloader.parentNode) {
+          preloader.parentNode.removeChild(preloader);
+        }
+      }, 750);
+    }, 200);
+  }
+
+  // Linear / Ease progress ticker over ~2.2 seconds targeted
+  const startTime = performance.now();
+  const totalDuration = 2200; // 2.2 seconds
+
+  function updateLoader(now) {
+    if (isFinished) return;
+
+    const elapsed = now - startTime;
+    let progress = Math.min(elapsed / totalDuration, 1);
+    // Smooth ease-out curve
+    const ease = 1 - Math.pow(1 - progress, 2.3);
+    currentPercent = Math.min(Math.floor(ease * 100), 100);
+
+    if (fillEl) fillEl.style.width = `${currentPercent}%`;
+    if (percentEl) percentEl.textContent = `${currentPercent < 10 ? '0' : ''}${currentPercent}%`;
+
+    // Find active stage
+    for (let i = stages.length - 1; i >= 0; i--) {
+      if (currentPercent >= stages[i].threshold) {
+        if (stageEl && stageEl.textContent !== stages[i].stage) {
+          stageEl.textContent = stages[i].stage;
+        }
+        if (termTextEl && termTextEl.textContent !== stages[i].text) {
+          termTextEl.textContent = stages[i].text;
+        }
+        break;
+      }
+    }
+
+    if (progress < 1) {
+      requestAnimationFrame(updateLoader);
+    } else {
+      finishLoader();
+    }
+  }
+
+  requestAnimationFrame(updateLoader);
+
+  // Skip handlers (clicking button or anywhere on screen, or pressing ESC)
+  if (btnSkip) {
+    btnSkip.addEventListener('click', (e) => {
+      e.stopPropagation();
+      finishLoader();
+    });
+  }
+
+  preloader.addEventListener('click', finishLoader);
+
+  document.addEventListener('keydown', function escHandler(e) {
+    if (e.key === 'Escape' && !isFinished) {
+      finishLoader();
+      document.removeEventListener('keydown', escHandler);
+    }
+  });
+}
+
+/* --------------------------------------------------------------------------
+   0. Lenis Smooth Momentum Inertial Scroll Engine
+   -------------------------------------------------------------------------- */
+let lenisInstance = null;
+
+function initLenisSmoothScroll() {
+  if (typeof Lenis === 'undefined') return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  try {
+    lenisInstance = new Lenis({
+      duration: 1.25,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.8,
+      infinite: false
+    });
+
+    lenisInstance.on('scroll', () => {
+      requestDualScrollUpdate();
+    });
+
+    function raf(time) {
+      lenisInstance.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Smooth navigation anchor interception
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (!targetId || targetId === '#') return;
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          lenisInstance.scrollTo(targetEl, { offset: -50, duration: 1.3 });
+        }
+      });
+    });
+  } catch (err) {
+    console.warn('Lenis init failed, using standard scroll', err);
+  }
+}
 
 /* --------------------------------------------------------------------------
    1. Scroll Progress Bar
@@ -239,39 +388,221 @@ function init3DCardTiltAndSpotlight() {
 }
 
 /* --------------------------------------------------------------------------
-   5. Scroll Reveal & Dynamic Stagger Motion
+   4.5 Dual Scroll-Scrubbed Engine: Kinetic Letter Wave + Active Depth Blur
    -------------------------------------------------------------------------- */
-function initScrollRevealAnimations() {
-  const revealSelectors = [
-    '.section-tag',
-    '.section-title',
-    '.section-subtitle',
-    '.console-intro > *',
+let scrubbableHeadings = [];
+let scrollFadeElements = [];
+let dualScrollTicking = false;
+
+function initKineticHeadingSplit() {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
+
+  // 1. Setup Word-Safe Kinetic Character Splitting for Section Headings
+  const headings = document.querySelectorAll(
+    '.section-title, .collab-title, .hero-heading'
+  );
+
+  scrubbableHeadings = [];
+
+  headings.forEach(heading => {
+    if (heading.dataset.charSplit === 'true') return;
+    heading.dataset.charSplit = 'true';
+
+    const charSpans = [];
+
+    function processNode(node) {
+      const fragment = document.createDocumentFragment();
+
+      Array.from(node.childNodes).forEach(child => {
+        if (child.nodeType === Node.TEXT_NODE) {
+          const text = child.textContent;
+          const tokens = text.split(/(\s+)/);
+
+          tokens.forEach(token => {
+            if (!token) return;
+            if (/^\s+$/.test(token)) {
+              const spaceSpan = document.createElement('span');
+              spaceSpan.className = 'char-space';
+              spaceSpan.innerHTML = '&nbsp;';
+              fragment.appendChild(spaceSpan);
+            } else {
+              const wordWrapper = document.createElement('span');
+              wordWrapper.className = 'word-wrapper';
+
+              for (let i = 0; i < token.length; i++) {
+                const char = token[i];
+                const charWrapper = document.createElement('span');
+                charWrapper.className = 'char-wrapper';
+                const charSpan = document.createElement('span');
+                charSpan.className = 'char';
+                charSpan.textContent = char;
+
+                charWrapper.appendChild(charSpan);
+                wordWrapper.appendChild(charWrapper);
+                charSpans.push(charSpan);
+              }
+
+              fragment.appendChild(wordWrapper);
+            }
+          });
+        } else if (child.nodeType === Node.ELEMENT_NODE) {
+          if (child.tagName.toLowerCase() === 'br') {
+            fragment.appendChild(child.cloneNode(true));
+          } else {
+            const clonedEl = child.cloneNode(false);
+            const innerFragment = processNode(child);
+            clonedEl.appendChild(innerFragment);
+            fragment.appendChild(clonedEl);
+          }
+        }
+      });
+
+      return fragment;
+    }
+
+    const newContent = processNode(heading);
+    heading.innerHTML = '';
+    heading.appendChild(newContent);
+
+    scrubbableHeadings.push({
+      element: heading,
+      isHero: heading.classList.contains('hero-heading'),
+      chars: charSpans
+    });
+  });
+
+  // 2. Setup Active Overlap Depth-Blur on Upcoming Content Cards & Grids
+  const targetSelectors = [
     '.console-card',
-    '.case-card',
-    '.service-card',
+    '.about-layout',
     '.timeline-card',
-    '.stat-card',
     '.skill-category-card',
-    '.about-column',
-    '.contact-card',
-    '.interactive-card'
+    '.case-card',
+    '.counter-card',
+    '.experience-card',
+    '.cert-card',
+    '.collab-card'
   ];
 
-  const revealTargets = document.querySelectorAll(revealSelectors.join(', '));
+  const elements = document.querySelectorAll(targetSelectors.join(', '));
+  scrollFadeElements = [];
 
-  revealTargets.forEach(el => {
-    el.classList.add('reveal-init');
+  elements.forEach(el => {
+    el.classList.add('scroll-fade-item');
+    scrollFadeElements.push(el);
+  });
 
-    // Dynamic sibling stagger calculation
-    const parent = el.parentElement;
-    if (parent) {
-      const siblings = Array.from(parent.children).filter(child => child.classList.contains('reveal-init'));
-      const siblingIndex = siblings.indexOf(el);
-      if (siblingIndex > 0) {
-        el.style.transitionDelay = `${Math.min(siblingIndex * 0.1, 0.45)}s`;
-      }
+  window.addEventListener('scroll', requestDualScrollUpdate, { passive: true });
+  window.addEventListener('resize', requestDualScrollUpdate, { passive: true });
+  updateDualScroll();
+}
+
+function requestDualScrollUpdate() {
+  if (!dualScrollTicking) {
+    requestAnimationFrame(updateDualScroll);
+    dualScrollTicking = true;
+  }
+}
+
+function updateDualScroll() {
+  const winH = window.innerHeight || document.documentElement.clientHeight;
+
+  // A. Update Kinetic Character Wave on Headings
+  scrubbableHeadings.forEach(item => {
+    const chars = item.chars;
+    const totalChars = chars.length;
+    if (totalChars === 0) return;
+
+    if (item.isHero) {
+      chars.forEach(charSpan => {
+        charSpan.style.transform = 'translateY(0%) rotateX(0deg)';
+        charSpan.style.opacity = '1';
+        charSpan.style.filter = 'none';
+      });
+      return;
     }
+
+    const rect = item.element.getBoundingClientRect();
+
+    // Active scrub zone: starts at 98% of viewport, completes by 55% (half page)
+    const enterZone = winH * 0.98;
+    const completeZone = winH * 0.55;
+    const travelDistance = enterZone - completeZone;
+
+    let progress = (enterZone - rect.top) / travelDistance;
+    progress = Math.min(Math.max(progress, 0), 1);
+
+    if (progress >= 0.99 || rect.top <= completeZone) {
+      chars.forEach(charSpan => {
+        charSpan.style.transform = 'translateY(0%) rotateX(0deg)';
+        charSpan.style.opacity = '1';
+        charSpan.style.filter = 'none';
+      });
+      return;
+    }
+
+    const charWindow = 0.45;
+    const step = totalChars > 1 ? (1 - charWindow) / (totalChars - 1) : 0;
+
+    chars.forEach((charSpan, idx) => {
+      const startT = idx * step;
+      let charProgress = (progress - startT) / charWindow;
+      charProgress = Math.min(Math.max(charProgress, 0), 1);
+
+      const ease = charProgress * (2 - charProgress); // Quad ease-out
+
+      const translateY = ((1 - ease) * 115).toFixed(2);
+      const rotateX = ((1 - ease) * -12).toFixed(2);
+      const opacity = Math.min(ease * 1.3, 1).toFixed(3);
+      const blur = ((1 - ease) * 7).toFixed(2);
+
+      charSpan.style.transform = `translateY(${translateY}%) rotateX(${rotateX}deg)`;
+      charSpan.style.opacity = opacity;
+      charSpan.style.filter = blur > 0.1 ? `blur(${blur}px)` : 'none';
+    });
+  });
+
+  // B. Active Overlap Depth-Blur on Upcoming Content
+  scrollFadeElements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+
+    const enterZone = winH * 0.98;
+    const completeZone = winH * 0.55;
+    const travelDistance = enterZone - completeZone;
+
+    let progress = (enterZone - rect.top) / travelDistance;
+    progress = Math.min(Math.max(progress, 0), 1);
+
+    const ease = progress * progress * (3 - 2 * progress); // Hermite smoothstep
+
+    if (ease >= 0.98 || rect.top <= completeZone) {
+      el.style.filter = 'none';
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    } else {
+      const blur = ((1 - ease) * 16).toFixed(1);
+      const opacity = (0.20 + ease * 0.80).toFixed(3);
+      const translateY = ((1 - ease) * 22).toFixed(1);
+
+      el.style.filter = `blur(${blur}px)`;
+      el.style.opacity = opacity;
+      el.style.transform = `translate3d(0, ${translateY}px, 0)`;
+    }
+  });
+
+  dualScrollTicking = false;
+}
+
+/* --------------------------------------------------------------------------
+   5. Scroll Reveal & Accent Line Expansion
+   -------------------------------------------------------------------------- */
+function initScrollRevealAnimations() {
+  const accentLines = document.querySelectorAll('.title-accent-line, .card-title-line, .section-tag');
+
+  accentLines.forEach(el => {
+    el.classList.add('reveal-init');
   });
 
   const observer = new IntersectionObserver((entries, obs) => {
@@ -282,35 +613,65 @@ function initScrollRevealAnimations() {
       }
     });
   }, {
-    threshold: 0.08,
+    threshold: 0.12,
     rootMargin: '0px 0px -40px 0px'
   });
 
-  revealTargets.forEach(el => observer.observe(el));
+  accentLines.forEach(el => observer.observe(el));
 }
 
 /* --------------------------------------------------------------------------
    6. Parallax Motion on Scroll
    -------------------------------------------------------------------------- */
 function initParallaxScroll() {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
+
   const watermark = document.querySelector('.hero-watermark');
   const heroOrb = document.querySelector('.hero-red-orb');
   const portraitCard = document.querySelector('.portrait-card');
+  const contactOrb = document.querySelector('.contact-glow-orb');
+
+  let ticking = false;
+
+  function updateParallax() {
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollY < window.innerHeight * 1.5) {
+      if (watermark) {
+        watermark.style.transform = `translate3d(0, ${(scrollY * 0.12).toFixed(2)}px, 0)`;
+      }
+      if (heroOrb) {
+        heroOrb.style.transform = `translate(-5%, -50%) translate3d(0, ${(scrollY * 0.08).toFixed(2)}px, 0)`;
+      }
+      if (portraitCard && window.innerWidth > 900) {
+        portraitCard.style.transform = `translate3d(0, ${(scrollY * 0.05).toFixed(2)}px, 0)`;
+      }
+    }
+
+    if (contactOrb) {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        const rect = contactSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          const offset = (window.innerHeight - rect.top) * 0.05;
+          contactOrb.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
+        }
+      }
+    }
+
+    ticking = false;
+  }
 
   window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollY > window.innerHeight * 1.8) return;
-
-    if (watermark) {
-      watermark.style.transform = `translate3d(0, ${scrollY * 0.12}px, 0)`;
-    }
-    if (heroOrb) {
-      heroOrb.style.transform = `translate(-5%, -50%) translate3d(0, ${scrollY * 0.1}px, 0)`;
-    }
-    if (portraitCard && window.innerWidth > 900) {
-      portraitCard.style.transform = `translate3d(0, ${scrollY * 0.06}px, 0)`;
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
     }
   }, { passive: true });
+
+  updateParallax();
 }
 
 /* --------------------------------------------------------------------------
@@ -894,12 +1255,14 @@ function initResumeModal() {
     modal.classList.add('active');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    if (lenisInstance) lenisInstance.stop();
   }
 
   function closeModal() {
     modal.classList.remove('active');
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    if (lenisInstance) lenisInstance.start();
   }
 
   btnOpen.addEventListener('click', openModal);
