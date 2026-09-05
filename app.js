@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLenisSmoothScroll();
   initScrollProgress();
   initDualCursor();
+  initMobileNavigation();
   initMagneticElements();
   init3DCardTiltAndSpotlight();
   initKineticHeadingSplit();
@@ -192,11 +193,18 @@ function initDualCursor() {
   if (!follower || !dot) return;
 
   // Disable completely on touch / mobile devices
-  if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) {
+  if (window.matchMedia && (window.matchMedia('(pointer: coarse)').matches || window.matchMedia('(hover: none)').matches)) {
     follower.style.display = 'none';
     dot.style.display = 'none';
     return;
   }
+
+  // Also disable on first touch interaction
+  window.addEventListener('touchstart', function onFirstTouch() {
+    follower.style.display = 'none';
+    dot.style.display = 'none';
+    window.removeEventListener('touchstart', onFirstTouch);
+  }, { passive: true, once: true });
 
   let mouseX = window.innerWidth / 2;
   let mouseY = window.innerHeight / 2;
@@ -1298,6 +1306,50 @@ function initResumeModal() {
     }
   });
 }
+
+/* --------------------------------------------------------------------------
+   12. Mobile Responsive Navigation Toggle & Interaction
+   -------------------------------------------------------------------------- */
+function initMobileNavigation() {
+  const toggleBtn = document.getElementById('mobileNavToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (!toggleBtn || !navLinks) return;
+
+  function setMenuState(open) {
+    const shouldOpen = typeof open === 'boolean' ? open : !navLinks.classList.contains('mobile-open');
+    navLinks.classList.toggle('mobile-open', shouldOpen);
+    toggleBtn.classList.toggle('is-open', shouldOpen);
+    toggleBtn.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+  }
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setMenuState();
+  });
+
+  // Smooth close when clicking any navigation link
+  const links = navLinks.querySelectorAll('.nav-link');
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      setMenuState(false);
+    });
+  });
+
+  // Close when clicking outside of nav
+  document.addEventListener('click', (e) => {
+    if (!toggleBtn.contains(e.target) && !navLinks.contains(e.target)) {
+      setMenuState(false);
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('mobile-open')) {
+      setMenuState(false);
+    }
+  });
+}
+
 
 
 

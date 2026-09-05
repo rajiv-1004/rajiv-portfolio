@@ -24,7 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <!-- Main Stylesheet (with cache buster) -->
-  <link rel="stylesheet" href="style.css?v=41.0">
+  <link rel="stylesheet" href="style.css?v=42.0">
   
   <style>
     /* Universal Red Text Selection Highlight */
@@ -235,6 +235,7 @@
       .hero-visual {
         margin-left: auto !important;
         margin-right: auto !important;
+        width: min(340px, 90vw) !important;
       }
     }
 
@@ -248,20 +249,73 @@
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75) !important;
     }
 
-    .chip-top {
-      top: 11% !important;
-      right: -28px !important;
+    @media (min-width: 961px) {
+      .chip-top {
+        top: 11% !important;
+        right: -28px !important;
+      }
+
+      .chip-left {
+        top: 45% !important;
+        left: -105px !important;
+      }
+
+      .chip-right {
+        top: 68% !important;
+        bottom: auto !important;
+        right: -72px !important;
+      }
     }
 
-    .chip-left {
-      top: 45% !important;
-      left: -105px !important;
+    @media (max-width: 960px) {
+      .chip-top {
+        top: 10px !important;
+        right: -4px !important;
+        font-size: 0.68rem !important;
+        padding: 0.35rem 0.85rem !important;
+      }
+
+      .chip-left {
+        top: 36% !important;
+        left: -8px !important;
+        font-size: 0.68rem !important;
+        padding: 0.35rem 0.85rem !important;
+      }
+
+      .chip-right {
+        top: auto !important;
+        bottom: 4.5rem !important;
+        right: -8px !important;
+        font-size: 0.68rem !important;
+        padding: 0.35rem 0.85rem !important;
+      }
     }
 
-    .chip-right {
-      top: 68% !important;
-      bottom: auto !important;
-      right: -72px !important;
+    @media (max-width: 480px) {
+      .hero-visual {
+        width: min(310px, 94vw) !important;
+      }
+      .chip-top {
+        top: 6px !important;
+        right: -2px !important;
+        font-size: 0.62rem !important;
+        padding: 0.3rem 0.68rem !important;
+      }
+
+      .chip-left {
+        top: 34% !important;
+        left: -4px !important;
+        font-size: 0.62rem !important;
+        padding: 0.3rem 0.68rem !important;
+      }
+
+      .chip-right {
+        top: auto !important;
+        bottom: 3.8rem !important;
+        right: -4px !important;
+        font-size: 0.62rem !important;
+        padding: 0.3rem 0.68rem !important;
+      }
     }
 
     .portrait-badge {
@@ -275,6 +329,23 @@
       font-size: 0.72rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.16em !important;
+    }
+
+    @media (max-width: 960px) {
+      .portrait-badge {
+        bottom: 1.25rem !important;
+        font-size: 0.68rem !important;
+        padding: 0.45rem 1.25rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .portrait-badge {
+        bottom: 1rem !important;
+        font-size: 0.62rem !important;
+        padding: 0.4rem 1rem !important;
+        letter-spacing: 0.1em !important;
+      }
     }
 
     .hero-red-orb {
@@ -441,7 +512,7 @@
   <header class="nav-shell">
     <nav class="nav-container">
       <a href="#home" class="logo font-bebas">Rajiv.<span class="text-red">M</span></a>
-      <div class="nav-links">
+      <div class="nav-links" id="navLinks">
         <a href="#about" class="nav-link">About</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#workbench" class="nav-link">AI Workbench</a>
@@ -449,7 +520,14 @@
         <a href="#experience" class="nav-link">Experience</a>
         <a href="#contact" class="nav-link">Contact</a>
       </div>
-      <a href="#contact" class="magnetic btn btn-red btn-sm">Let's Talk</a>
+      <div class="nav-actions">
+        <a href="#contact" class="magnetic btn btn-red btn-sm nav-cta">Let's Talk</a>
+        <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
     </nav>
   </header>
 
@@ -998,8 +1076,10 @@
                   <span>Keras</span>
                   <span>CNNs</span>
                 </div>
-                <a href="https://github.com/rajiv-m" target="_blank" rel="noreferrer" class="btn btn-red-outline font-mono">
-                  <i data-lucide="github"></i>
+                <a href="https://github.com/rajiv-1004/food-image-calorie-estimation" target="_blank" rel="noreferrer" class="btn btn-red-outline font-mono" aria-label="View Food Image Classification &amp; Calorie Estimation on GitHub">
+                  <svg class="github-icon" viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
                   <span>GITHUB</span>
                   <i data-lucide="arrow-up-right"></i>
                 </a>
@@ -1038,8 +1118,10 @@
                   <span>Cosine Similarity</span>
                   <span>BIM Model</span>
                 </div>
-                <a href="https://github.com/rajiv-m" target="_blank" rel="noreferrer" class="btn btn-red-outline font-mono">
-                  <i data-lucide="github"></i>
+                <a href="https://github.com/rajiv-1004/binary-independence-model" target="_blank" rel="noreferrer" class="btn btn-red-outline font-mono" aria-label="View Optimized Document Ranking with BIM on GitHub">
+                  <svg class="github-icon" viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
                   <span>GITHUB</span>
                   <i data-lucide="arrow-up-right"></i>
                 </a>
@@ -1077,8 +1159,10 @@
                   <span>Computer Vision</span>
                   <span>CSV Automation</span>
                 </div>
-                <a href="https://github.com/rajiv-m" target="_blank" rel="noreferrer" class="btn btn-red-outline font-mono">
-                  <i data-lucide="github"></i>
+                <a href="javascript:void(0)" onclick="event.preventDefault();" class="btn btn-red-outline font-mono" aria-label="GitHub Repository">
+                  <svg class="github-icon" viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
                   <span>GITHUB</span>
                   <i data-lucide="arrow-up-right"></i>
                 </a>
@@ -1449,7 +1533,7 @@
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 
   <!-- JavaScript -->
-  <script src="app.js?v=41.0"></script>
+  <script src="app.js?v=42.0"></script>
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
