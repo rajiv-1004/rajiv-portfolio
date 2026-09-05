@@ -2084,6 +2084,41 @@ body.cursor-theme-light .cursor-follower {
   flex-shrink: 0;
 }
 
+/* Prediction Output Box */
+.prediction-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pred-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  font-size: 0.72rem;
+  width: 100%;
+}
+
+.pred-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 0.1rem 0;
+}
+
+.pred-bar-fill {
+  height: 100%;
+  background: var(--color-red);
+  border-radius: 999px;
+  box-shadow: 0 0 8px var(--color-red);
+}
+
 /* Simulated Telemetry Sparkline Bars */
 .telemetry-strip {
   display: flex;
@@ -4089,15 +4124,195 @@ img, video, iframe, canvas, svg {
     gap: 0.45rem;
   }
 
+  /* AI Workbench Tablet/Mobile Optimization */
+  .workbench-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .workbench-controls {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .workbench-lead {
+    font-size: 0.94rem !important;
+    line-height: 1.55 !important;
+    max-width: 100% !important;
+  }
+
+  .module-buttons {
+    width: 100% !important;
+    gap: 0.65rem !important;
+  }
+
+  .module-btn {
+    padding: 0.75rem 0.95rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .btn-icon-sq {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    margin-right: 0 !important;
+  }
+
+  .btn-text {
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+  }
+
+  .btn-text h4 {
+    font-size: 0.88rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.15rem !important;
+    word-break: break-word !important;
+  }
+
+  .btn-text p {
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .module-spec {
+    font-size: 0.68rem !important;
+    margin-left: auto !important;
+    padding-left: 0.45rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .simulator-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .handheld-chassis {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.95rem 0.85rem 0.85rem !important;
+    border-radius: 20px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
   .sim-header {
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    font-size: 0.65rem;
+    flex-wrap: wrap !important;
+    gap: 0.35rem !important;
+    font-size: 0.62rem !important;
+  }
+
+  .header-status {
+    gap: 0.35rem !important;
+    flex: 1 1 auto !important;
+  }
+
+  .header-counter {
+    margin: 0 !important;
+    flex: 0 0 auto !important;
+  }
+
+  .header-hw {
+    display: none !important;
+  }
+
+  .dark-bezel-screen {
+    padding: 0.85rem 0.75rem !important;
+    min-height: auto !important;
+    border-radius: 14px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .screen-titlebar {
+    flex-wrap: wrap !important;
+    gap: 0.25rem !important;
+    font-size: 0.64rem !important;
+  }
+
+  .sim-tech-row {
+    flex-wrap: wrap !important;
+    gap: 0.35rem !important;
+    font-size: 0.62rem !important;
+  }
+
+  .sim-pipeline-box {
+    padding: 0.45rem 0.55rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
   .sim-pipeline-flow {
-    flex-wrap: wrap;
-    gap: 0.35rem 0.25rem;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.3rem 0.2rem !important;
+    align-items: center !important;
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
+  .pipe-node {
+    font-size: 0.52rem !important;
+    padding: 0.15rem 0.35rem !important;
+  }
+
+  .pipe-arrow {
+    font-size: 0.52rem !important;
+  }
+
+  .prediction-panel {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .pred-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 0.2rem !important;
+    font-size: 0.66rem !important;
+    width: 100% !important;
+  }
+
+  .screen-terminal-wrap,
+  .screen-terminal {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .screen-terminal {
+    font-size: 0.6rem !important;
+    line-height: 1.4 !important;
+    padding: 0.45rem 0.65rem !important;
+    min-height: 55px !important;
+    max-height: 75px !important;
+  }
+
+  .terminal-line {
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+
+  .screen-footer-meta {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+    font-size: 0.6rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .case-big-heading {
@@ -4193,6 +4408,38 @@ img, video, iframe, canvas, svg {
     font-size: 0.64rem !important;
     padding: 0.42rem 1.15rem !important;
     letter-spacing: 0.12em !important;
+  }
+
+  .module-btn {
+    padding: 0.65rem 0.75rem !important;
+    gap: 0.6rem !important;
+  }
+
+  .btn-icon-sq {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+  }
+
+  .btn-text h4 {
+    font-size: 0.82rem !important;
+  }
+
+  .btn-text p {
+    font-size: 0.68rem !important;
+  }
+
+  .module-spec {
+    font-size: 0.62rem !important;
+    padding-left: 0.25rem !important;
+  }
+
+  .handheld-chassis {
+    padding: 0.75rem 0.65rem 0.65rem !important;
+  }
+
+  .dark-bezel-screen {
+    padding: 0.7rem 0.6rem !important;
   }
 
   .case-footer-row {
